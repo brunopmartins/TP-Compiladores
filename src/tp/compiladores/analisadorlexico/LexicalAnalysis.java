@@ -67,7 +67,10 @@ public class LexicalAnalysis {
                     else if (Utils.isDigit(c)) {
                         lex.type = Token.INTEGER_CONST;
                         lex.token += (char) c;
-                        estado = 5;
+                        if(c == '0'){
+                            estado = 10;
+                        } else { estado = 5; }
+
                     }
                     else if (Utils.isLetter(c)) {
                         lex.token += (char) c;
@@ -179,6 +182,15 @@ public class LexicalAnalysis {
                         }
                         estado = 9;
                     }
+                    break;
+                case 10 : 
+                    if (c == '.') {
+                        lex.token += (char) c;
+                        estado = 6;
+                    }
+                    else {
+                        estado = 0;
+                    } 
                     break;
                 case 11: //string
                     if (c == -1) {
