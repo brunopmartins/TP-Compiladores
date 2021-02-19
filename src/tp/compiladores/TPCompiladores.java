@@ -24,15 +24,15 @@ public class TPCompiladores {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException, LexicalException{
-//        if (args.length != 1) {
-//            System.out.println("Usage: java TPCompiladores [Source file]");
-//        }
+        if (args.length != 1) {
+            System.out.println("Usage: java TPCompiladores [Source file]");
+        }
         LexicalAnalysis la;
         
         // O código a seguir é usado apenas para testar o analisador léxico.
         // TODO: depois de pronto, comentar o código abaixo.
         try {
-            la = new LexicalAnalysis("test.txt");
+            la = new LexicalAnalysis(args[0]);
             
             Lexeme lex = new Lexeme();
         
